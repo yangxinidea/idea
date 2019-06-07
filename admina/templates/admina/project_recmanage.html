@@ -1,0 +1,68 @@
+{% extends '../base/base.html' %}
+
+{% block title %}Admin-Index{% endblock %} {# title #}
+{% block css %}{# css #}
+<!--data table-->
+<link rel="stylesheet" href="/public/js/data-tables/DT_bootstrap.css" />
+{% endblock %}
+{% block heading %}   {# heading #}
+<ul class="breadcrumb">
+    <h3>项目管理</h3>
+    <li>
+        <a href="#">招募管理</a>
+    </li>
+    <li class="active">招募总览</li>
+</ul>
+{% endblock %}
+
+{% block body %} {# body #}
+<div class="wrapper">
+    <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        招募管理
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>
+                    </header>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>项目名称</th>
+                                <th>招募状态</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>编辑</th>
+                                <th>删除</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td><button class="btn btn-primary" name="edit_btn">编辑</button></td>
+                                <td><button class="btn btn-primary" name="delete_btn">删除</button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block midscript %}   {# midescript #}
+{% endblock %}
+
+{% block lastscript %}  {# lastscript #}
+<script>
+
+</script>
+{% endblock %}
