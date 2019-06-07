@@ -160,7 +160,7 @@ body{
     color: #8590a6;
 }
 .op-tip{
-    width:333px;
+    width:260px;
     height:40px;
     float:right;
     margin-top: 18px;
@@ -172,14 +172,14 @@ body{
     margin: 2px 0 0 18px;
 }
 
-.home-b-share {
-	width:75px;
-	float:left;
-	font-size:18px;
-    margin-top: -114px;
-    margin-left:5px;
+/*.home-b-share {*/
+	/*width:75px;*/
+	/*float:left;*/
+	/*font-size:18px;*/
+    /*margin-top: -114px;*/
+    /*margin-left:5px;*/
 
-}
+/*}*/
 .home-b-comment {
 	width:75px;
 	float:left;

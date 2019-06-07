@@ -95,6 +95,7 @@ urlpatterns = [
     url(r'^PM_content/(?P<projectid>\d+)$', views.PM_content),
     url(r'^PM_join$', views.PM_join),
     url(r'^PM_draft$', views.PM_draft),
+    # url(r'^PM_rapply$', views.PM_rapply),
     url(r'^delpeople$', views.delpeople),
     url(r'^get_follow_count$', views.get_follow_count),
     url(r'^get_praise_count$', views.get_praise_count),
