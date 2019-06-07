@@ -12,41 +12,24 @@
 {%block content%}
 <input type="hidden" value="{{ team.Id }}" id="team_mark">
 <div class="container-fluid" style="margin-top: 30px;">
-    <div class="container" style="background-color: rgba(220,220,220,0.1);">
+    <div class="container" style="background-color: white;">
         <div class="row" style="margin-top: 60px;">
-            <div class="col-xs-6 col-md-4">
+            <div class="team-introduce">
                 <div class="row">
-                    <div class="col-xs-6 col-md-4" style="width: 120px;height: 120px;border-radius: 14px;">
-                        <img src="/static/photos/{{ team.Img }}" style="width: 100%;height: 100%;border-radius: 14px;">
+                    <div class="team-img">
+                        <img src="/static/photos/{{ team.Img }}" style="width: 100%; height: 100%;border-radius: 60px;">
                     </div>
-                    <div class="col-xs-12 col-md-8">
-                        <div class="row" style="font-size: 20px;">
+                    <div class="team-container">
+                        <div class="team-name" style="font-size: 20px;">
                             <strong>{{ team.UserName }}</strong>
                         </div>
-                        <div class="row" style="font-size: 14px;">
+                        <div class="team-content" style="font-size: 14px;">
                             <p style="text-indent: 1em;">{{ team.Introduction }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="praise1-2 praise11-2" id="comment11-2">
-                        <span id="praise11-2" class="praise11-2"><img src="{% static 'team/imgs/评论图标.png' %}" id="praise-img11-2" /> </span>
-                        <span id="praise-txt11-2" class="praise-txt11-2">评论</span>
-                    </div>
-                    <div class="praise11-1 praise1-1" >
-                         <span id="praise11-1" class="praise11-1"><img src="{% static 'team/imgs/xinxing.png' %}" id="praise-img11-guanzhu" alt="图片不显示替代的文字内容" > </span>
-                         <span id="praise-txt11-1" class="praise-txt11-1">{{ counnt }}</span>
-                    </div>
-                    <div class="praise11 praise1" >
-                         <span id="praise11" class="praise11"><img src="{% static 'team/imgs/dianzan.png' %}" id="praise-img11-dianzan" alt="图片不显示替代的文字内容"> </span>
-                         <span id="praise-txt11" class="praise-txt11">{{ teamcounts }}</span>
-                    </div>
-                    <div class="teamdetailadddiv">
-                        <input type="button" value="申请帮助" class="btn btn-info btn-xs" id="petitionhelp" onclick="window.open('/idear/teamhelpapplication/{{ team.Id }}')">
-                    </div>
-                </div>
             </div>
-            <div class="col-xs-6 col-md-4">
+            <div class="team-detail">
                 <div class="row">
                     <div class="teamdetailsynopsis1-2">
                         <span class="register1-3">所属学院：</span>
@@ -67,65 +50,76 @@
                 </div>
                 <div class="row">
                     <div class="teamdetailsynopsis1-6">
-                        <span class="register1-2">用户邮箱：</span>
+                        <span class="register1-2">联系邮箱：</span>
                          {{ team.Email }}
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-4">
-                <div class="teamlable1-1">团队标签</div>
-                <div class="teamlable1-2"></div>
-                <div class="teamlable1-3">
-                    {% for label in labels %}
-                        <span class="teamlable1-4" id="teamlable1-4" ><a href="#" class="hovera" style="text-decoration: none;color: rgba(54, 54 ,54,0.5)">{{ label.userLabel.Name }}</a></span>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container" style="margin-top: 30px;">
-        <div class="row">
-            <div class="historys1-1">
-                 项目历史
-            </div>
-        </div>
-        <div class="row" style="margin-top: 30px;">
-            {% for team_project in team_history_project %}
-                {% if team_project %}
-                    <a href="/idear/dedetails?projectId={{ team_project.project.Id }}" style="text-decoration: none;cursor: pointer;">
-                        <div class="col-xs-6 col-md-4" style="-webkit-box-shadow: 10px 10px 10px 10px rgba(207, 207, 207,0.5);-moz-box-shadow: 10px 10px 10px 10px rgba(207, 207, 207,0.5);box-shadow: 10px 10px 10px 10px rgba(207, 207, 207,0.5);min-height: 300px;">
-                            <div class="row">
-                                <div class="col-xs-6 col-md-4" style="width: 90px;height: 90px;border: 1px solid #87CEFA;border-radius: 50px;">
-                                    <img src="/static/photos/{{team_project.project.Img}}" style="width: 100%;height: 100%;border-radius: 40px;">
-                                </div>
-                                <div class="col-xs-12 col-md-8">
-                                    <div class="row" style="text-align: center;">
-                                         <strong>{{team_project.project.ProjectName}}</strong>
-                                    </div>
-                                    <div class="row">
-                                        {% for team_label in team_project_label %}
-                                            {% if team_label.project.Id == team_project.project.Id %}
-                                                <span class="repo-language-color pinned-repo-meta" id="manyColor" ></span>
-                                                <a style=" font-size: 14px;color: #7A8B8B;">{{ team_label.projectLabel.ProjectLabelName }}</a>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 20px;height: 180px;overflow: auto;">
-                                <p style="text-indent: 1em">{{team_project.project.Description}}</p>
-                            </div>
-                        </div>
-                    </a>
-                {% else %}
-                    <div style="width: 100%;height: 150px;">
-                        11111111
-                        <img src="../../static/team/imgs/add_history_team_project.png" style="width: 100%;height: 100%">
+        <div class="team-praise-tag">
+            <div class="team-praise">
+                    <div class="praise11-1 praise1-1" >
+                         <span id="praise11-1" class="praise11-1"><img src="{% static 'team/imgs/xinxing.png' %}" id="praise-img11-guanzhu" alt="图片不显示替代的文字内容" > </span>
+                         <span id="praise-txt11-1" class="praise-txt11-1">{{ counnt }}</span>
                     </div>
-                {% endif %}
-            {% endfor %}
+                    <div class="praise11 praise1" >
+                         <span id="praise11" class="praise11"><img src="{% static 'team/imgs/dianzan.png' %}" id="praise-img11-dianzan" alt="图片不显示替代的文字内容"> </span>
+                         <span id="praise-txt11" class="praise-txt11">{{ teamcounts }}</span>
+                    </div>
+                </div>
+            <div class="team-tag">
+                <a>团队标签:</a>
+                    {% for label in labels %}
+                        <span class="repo-language-color pinned-repo-meta" id="manyColor" ></span>
+                        <a href="#"  style="text-decoration: none;color: rgba(54, 54 ,54,0.5)">{{ label.userLabel.Name }}</a>
+                    {% endfor %}
+            </div>
         </div>
+{#     <div class="team-apply">#}
+{#                <input type="button" value="申请帮助" class="btn btn-info btn-xs" id="petitionhelp" onclick="window.open('/idear/teamhelpapplication/{{ team.Id }}')">#}
+{#     </div>#}
     </div>
+{#    <div class="container" style="margin-top: 30px;">#}
+{#        <div class="row">#}
+{#            <div class="historys1-1">团队成员</div>#}
+{#            <div class="historys1-2"></div>#}
+{#        </div>#}
+{#        <div class="row" style="margin-top: 30px;">#}
+{#            {% for team_project in team_history_project %}#}
+{#                {% if team_project %}#}
+{#                    <a href="/idear/dedetails?projectId={{ team_project.project.Id }}" style="text-decoration: none;cursor: pointer;">#}
+{#                        <div class="col-xs-6 col-md-4" style="-webkit-box-shadow: 10px 10px 10px 10px rgba(207, 207, 207,0.5);-moz-box-shadow: 10px 10px 10px 10px rgba(207, 207, 207,0.5);box-shadow: 10px 10px 10px 10px rgba(207, 207, 207,0.5);min-height: 300px;">#}
+{#                            <div class="row">#}
+{#                                <div class="col-xs-6 col-md-4" style="width: 90px;height: 90px;border: 1px solid #87CEFA;border-radius: 50px;">#}
+{#                                    <img src="/static/photos/{{team_project.project.Img}}" style="width: 100%;height: 100%;border-radius: 40px;">#}
+{#                                </div>#}
+{#                                <div class="col-xs-12 col-md-8">#}
+{#                                    <div class="row" style="text-align: center;">#}
+{#                                         <strong>{{team_project.project.ProjectName}}</strong>#}
+{#                                    </div>#}
+{#                                    <div class="row">#}
+{#                                        {% for team_label in team_project_label %}#}
+{#                                            {% if team_label.project.Id == team_project.project.Id %}#}
+{#                                                <span class="repo-language-color pinned-repo-meta" id="manyColor" ></span>#}
+{#                                                <a style=" font-size: 14px;color: #7A8B8B;">{{ team_label.projectLabel.ProjectLabelName }}</a>#}
+{#                                            {% endif %}#}
+{#                                        {% endfor %}#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row" style="margin-top: 20px;height: 180px;overflow: auto;">#}
+{#                                <p style="text-indent: 1em">{{team_project.project.Description}}</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </a>#}
+{#                {% else %}#}
+{#                    <div style="width: 100%;height: 150px;">#}
+{#                        11111111#}
+{#                        <img src="../../static/team/imgs/add_history_team_project.png" style="width: 100%;height: 100%">#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
     <div class="comments">
         <div class="content-footer">
             <div class="comment">

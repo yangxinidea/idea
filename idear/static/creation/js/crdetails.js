@@ -1,11 +1,7 @@
-//
-//$(function () {
-//
-//$.cookie("user",3)
-//
-//userId = $.cookie("user")
-
-/*cookie值转码*/
+ $(function() {
+     userId = getCookie("user");
+     user_email = getCookie("user_email");
+ });
 function getCookie(name) {
     var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
     if (arr = document.cookie.match(reg))
@@ -144,16 +140,16 @@ $("#submit-rdcreport").click(function(){
 $(".home-b-collection").click(function(){
     Id = $(this).attr("creation")
     follow = $(this)
-    $.post("/idear/attend",{userId:userId,attendType:"1",Id:Id},function(data){
+    $.post("attend",{userId:userId,attendType:"1",Id:Id},function(data){
      if(data == 1)
          {
            follow.children().attr("src","../static/creation/imgs/collections.png")
            follow.children(".followspan").html(parseInt(follow.children(".followspan").html())+1)
        }
      else if(data == 0)
-         alert(data)
+        alert("操作失败")
      else
-       {
+        {
          follow.children().attr("src","../static/creation/imgs/collection0.png")
          follow.children(".followspan").html(parseInt(follow.children(".followspan").html())-1)
        }
@@ -163,21 +159,20 @@ $(".home-b-collection").click(function(){
 
 //创意点赞操作
  $(".praise").click(function(){
-
     Id = $(this).attr("creation")
-    like = $(this)
-    $.post("/idear/star",{userId:userId,starType:"1",Id:Id},function(data){
+    praise = $(this)
+    $.post("star",{userId:userId,starType:"1",Id:Id},function(data){
      if(data == 1)    //点赞成功
          {
-           like.children().attr("src","../static/creation/imgs/likes.png")
-           like.children(".praise-txt").html(parseInt(like.children(".praise-txt").html())+1)
+           praise.children().attr("src","../static/creation/imgs/likes.png")
+           praise.children(".praise-txt").html(parseInt(praise.children(".praise-txt").html())+1)
        }
      else if(data == 0)
          alert(data)
      else    //取消点赞成功
        {
-         like.children().attr("src","../static/creation/imgs/like1.png")
-         like.children(".praise-txt").html(parseInt(like.children(".praise-txt").html())-1)
+         praise.children().attr("src","../static/creation/imgs/like1.png")
+         praise.children(".praise-txt").html(parseInt(praise.children(".praise-txt").html())-1)
        }
 
  })

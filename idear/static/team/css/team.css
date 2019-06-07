@@ -32,7 +32,7 @@ html{
      margin: 30px 3% 0 4.5%;
 	 float: left;
 	 height: 350px;
-	 width: 37%;
+	 width: 40%;
 	 background-color:rgba(255, 255, 255, 1);
 	 box-shadow: 10px 10px 5px 0 rgba(211, 211, 211, 0.8);
      border-radius: 10px;
@@ -375,11 +375,11 @@ html{
 /*动态点赞结束*/
 .more_0 {
     color: #444444;
-    width: 89%;
+    width: 87%;
     height: 30px;
     text-align: center;
     float: left;
-    margin: 35px 4.5%;
+    margin: 35px -1.5%;
     margin-bottom: 2%;
     background-color: white;
     border-radius: 3px;
@@ -393,23 +393,27 @@ html{
     float: left;
 	margin-left: 65%;
 }
+
 .intro_1{
-	width: 100%;
-	height: 230px;
-	margin: 30px 22px 0 0 ;
-	background-color:#8bcfcc;
+    width:300px;
+	height:230px;
+    float: left;
+    margin: 12% 0;
+	background-color:#a6d0e4;
+	border-radius: 10px 70px;
 	box-shadow: 10px 10px 2px 2px #bdc3c7;
-    border-radius: 10px 70px;
 	opacity:0.8;
 }
 
 .intro_1 p {
-    text-indent: 2em;
-    line-height:25px;
-	float: left;
-	margin:0 11%;
-	text-align: left;
-	width: 82%;
+    width:86%;
+	float:left;
+	margin-left:8%;
+	margin-top:6%;
+	text-align:left;
+	font-family:幼圆;
+	font-weight:bold;
+	line-height:20px;
 }
 /*.feature button{*/
 	/*border: none;*/
@@ -426,13 +430,16 @@ html{
 	 margin-bottom: 15px;
 	 position: relative;
  }
- .tag hr:before{
-    content: '';
-    width: 60px;
-    height: 4px;
-    background-color: #57cecd;
-    position: absolute;
-    bottom: 0;
+ .tag {
+	width: 99%;
+	height:auto;
+	float:right;  }
+ .tag hr{
+        border: 0;
+    border-top: 1px solid #c0c5cd;
+    margin-bottom: 15px;
+    margin-top: 52px;
+    position: relative;
  }
  .tag a{
     font-size: 15px;
@@ -443,12 +450,21 @@ html{
     margin-bottom: 8px;
     font-family:幼圆;
  }
+  .tag p{
+      margin-left: 4px;
+    font-size: 18px;
+    float: left;
+    margin-top: 20px;
+      font-family: 幼圆;
+      color:black;
+  }
 
  .allsign{
     border: 1px solid #c0c5cd;
     border-radius: 5px;
     padding: 6px 15px;
-    color: #a9b1b5;
+    color: gray;
+     background-color: white;
 }
  .allsign.cur{
      background-color: #1b6d85;
