@@ -132,18 +132,7 @@ $(function () {
             $("#numPerson").css("border","1px solid red");
             return ;
         }
-        var proLabels = '';//项目标签
-        var oDiv = document.getElementsByName("chance_pro_label");
-        for(var i = 0;i < oDiv.length;i ++){
-            if(oDiv[i].style.backgroundColor != "")
-                proLabels+=oDiv[i].innerHTML + '*';
-        }
-        var tlabel;
-        if(proLabels === ""){
-            tlabel=0;
-        }else {
-            tlabel=1;
-        }
+
         var coverMap = $(".file-preview-image").attr("src");
         var picture;//图片
         if(!coverMap){
@@ -169,8 +158,6 @@ $(function () {
             "rhtml": rhtml,
             "numPerson": numPerson,
             "endTime": endTime,
-            "proLabels": proLabels,
-            "tlabel":tlabel,
             "postCon": postCon,
             "plan": plan
         };

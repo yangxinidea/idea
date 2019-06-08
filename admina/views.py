@@ -349,10 +349,6 @@ def project_add(req):
     :return:
     '''
     if req.method == "GET":
-        # if req.COOKIES.get('1111'):
-        #     2333333333
-        # else:
-        #     return login(req)
         projectLabels = models.ProjectLabel.objects.all().order_by("-Id")
         user = models.User.objects.all()
         return render(req, 'admina/project_add.html', {
