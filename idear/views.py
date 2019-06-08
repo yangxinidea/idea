@@ -2254,13 +2254,10 @@ def PM_content(req,projectid):
     '''
     if req.method == 'GET':
         project = models.Project.objects.get(Id=projectid)
-
         user = models.ProjectUser.objects.filter(Q(project_id=projectid)&Q(Identity=0))
         firstUser = models.ProjectUser.objects.filter(Q(project_id=projectid)&Q(Identity=1))
-
         labels = models.ProjectLabel.objects.all()
         recruit = models.Recruit.objects.filter(project__Id=projectid)
-
         if recruit.exists():
             recruit = recruit[0]
         try:
@@ -2269,7 +2266,6 @@ def PM_content(req,projectid):
             return render_to_response('personal/PM_content.html')
 
     if req.method == "POST":
-
         result = {
             'message': None,
             'status': 0,
@@ -2284,10 +2280,8 @@ def PM_content(req,projectid):
             picture = req.POST['picture']
             Description = req.POST["rhtml"]
             Description = remove_script(Description)
-
             numPerson = req.POST['numPerson']
             EndTime = req.POST["endTime"]
-
             proLabels = req.POST['proLabels'].split('*')
             tlabel = req.POST['tlabel']
             postCon = req.POST['postCon']

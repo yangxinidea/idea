@@ -349,10 +349,10 @@ def project_add(req):
     :return:
     '''
     if req.method == "GET":
-        if req.COOKIES.get('1111'):
-            2333333333
-        else:
-            return login(req)
+        # if req.COOKIES.get('1111'):
+        #     2333333333
+        # else:
+        #     return login(req)
         projectLabels = models.ProjectLabel.objects.all().order_by("-Id")
         user = models.User.objects.all()
         return render(req, 'admina/project_add.html', {
@@ -784,7 +784,7 @@ def creation_add(req, uid=None):
             print creatino_init_time
             creation_is_use = data.get('IsUse')
             creatino_init_time = data.get('creation_init_time')
-            creation_name = escapejs(data.get('creation_name'))
+            creation_name = data.get('creation_name')
             creation_tagids = data.get(u'Tags')
             creation_descibe = data.get(u'creation_descibe')
             print creation_tagids

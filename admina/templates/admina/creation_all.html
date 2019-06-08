@@ -44,6 +44,7 @@
 
                     <div id="gallery" class="media-gal">
                         {% for creation in Creations %}
+                            {% if creation.IsUse == True %}
                             <div class="images item " name="creatino_div" id="creation-{{ creation.Id }}">
                             <a href="#myModal" data-toggle="modal" >
                                 {% if creation.Img %}
@@ -55,6 +56,7 @@
                             </a>
                             <p>{{ creation.Name | slice:"10" }}</p>
                         </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
 
@@ -146,8 +148,8 @@
                     var delete_btn= document.getElementById("creation_delete_btn");
                     delete_btn.onclick = function () {
                         if(confirm("确认删除？")){
-                            $.post("creation/delete/", {"creationId": creationid},function (res) {
-                                res = JSON.parse(res);
+                            $.post('/admina/creation/delete/', {"creationId": creationid},function (res) {
+{#                                res = JSON.parse(res);#}
                                 if(res.status === 1){
                                     alert(res.message);
                                 window.location.reload();
