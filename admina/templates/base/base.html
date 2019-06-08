@@ -57,33 +57,33 @@
             </div>
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li><a href="#"><i class="fa fa-home"></i> <span>总览</span></a></li>
+{#                <li><a href="#"><i class="fa fa-home"></i> <span>总览</span></a></li>#}
                 <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>关系管理(点赞，关注)</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{% url 'admina:relation_praise' %}"> 点赞管理</a></li>
                         <li><a href="{% url 'admina:relation_attention' %}"> 关注管理</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-bullhorn"></i> <span>消息管理</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="#"> 群体消息</a></li>
-                        <li><a href="#"> Buttons</a></li>
-                        <li><a href="#"> Tabs & Accordions</a></li>
-                        <li><a href="#"> Typography</a></li>
-                        <li><a href="#"> Slider</a></li>
-                        <li><a href="#"> Panels</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href="#"><i class="fa fa-lemon-o"></i> <span>分值管理</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="{% url 'admina:score_rank' %}"> 分值等级</a></li>
-                        <li><a href="{% url 'admina:score_record' %}"> 分值变动记录</a></li>
-                    </ul>
-                </li>
+{#                <li class="menu-list"><a href=""><i class="fa fa-bullhorn"></i> <span>消息管理</span></a>#}
+{#                    <ul class="sub-menu-list">#}
+{#                        <li><a href="#"> 群体消息</a></li>#}
+{#                        <li><a href="#"> Buttons</a></li>#}
+{#                        <li><a href="#"> Tabs & Accordions</a></li>#}
+{#                        <li><a href="#"> Typography</a></li>#}
+{#                        <li><a href="#"> Slider</a></li>#}
+{#                        <li><a href="#"> Panels</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li class="menu-list"><a href="#"><i class="fa fa-lemon-o"></i> <span>分值管理</span></a>#}
+{#                    <ul class="sub-menu-list">#}
+{#                        <li><a href="{% url 'admina:score_rank' %}"> 分值等级</a></li>#}
+{#                        <li><a href="{% url 'admina:score_record' %}"> 分值变动记录</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
                 <li class="menu-list"><a href=""><i class="fa fa-exclamation-circle"></i> <span>举报管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{% url 'admina:report_comment'  %}"> 评论举报</a></li>
-                        <li><a href="{% url 'admina:report_user' %}"> 用户举报</a></li>
+{#                        <li><a href="{% url 'admina:report_user' %}"> 用户举报</a></li>#}
                         <li><a href="{% url 'admina:report_project' %}"> 项目举报</a></li>
                         <li><a href="{% url 'admina:report_creation' %}"> 创意举报</a></li>
                     </ul>
@@ -96,19 +96,19 @@
                 </li>
                 <li class="menu-list"><a href="#"><i class="fa fa-comment"></i> <span>评论管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="{% url 'admina:comment_statistic' %}"> 评论总览</a></li>
+{#                        <li><a href="{% url 'admina:comment_statistic' %}"> 评论总览</a></li>#}
                         <li><a href="{% url 'admina:comment_project' %}"> 项目评论</a></li>
                         <li><a href="{% url 'admina:comment_creation' %}"> 创意评论</a></li>
-                        <li><a href="{% url 'admina:comment_user' %}"> 用户评论</a></li>
+{#                        <li><a href="{% url 'admina:comment_user' %}"> 用户评论</a></li>#}
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-users"></i> <span>用户管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="{% url 'admina:user_all'  2 %}"> 全部用户</a></li>
 {#                        <li><a href="/admina/user/timeline"> 用户时间线</a></li>#}
-                        <li><a href="/admina/user/detail"> 用户详情</a></li>
+{#                        <li><a href="/admina/user/detail"> 用户详情</a></li>#}
                         <li><a href="/admina/user/add"> 用户添加</a></li>
-                        <li><a href="/admina/user/introduction"> 用户自我介绍</a></li>
+{#                        <li><a href="/admina/user/introduction"> 用户自我介绍</a></li>#}
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>项目管理</span></a>
@@ -144,9 +144,9 @@
         <!--toggle button end-->
 
         <!--search start-->
-        <form class="searchform"  method="post">
-            <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
-        </form>
+{#        <form class="searchform"  method="post">#}
+{#            <input type="text" class="form-control" name="keyword" placeholder="Search here..." />#}
+{#        </form>#}
         <!--search end-->
 
         <!--notification menu start -->
@@ -356,7 +356,7 @@
 
         <!--footer section start-->
         <footer class="sticky-footer">
-            2017 &copy; we创 by 华北理工大学智慧软件研发工作室
+            2019
         </footer>
         <!--footer section end-->
 

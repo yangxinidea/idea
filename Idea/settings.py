@@ -92,6 +92,12 @@ DATABASES = {
         # 'HOST': '127.0.0.1',
         # 'PORT': '3306',
 
+        'USER': 'root',
+        'NAME': 'idea',
+        'PASSWORD': '12345',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+
         # 'USER': 'mysqlroot',
         # 'NAME': 'Idea',
         # 'PASSWORD': 'chuangxin2624',
