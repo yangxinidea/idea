@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'Idea.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        #
+        'ENGINE': 'django.db.backends.mysql',
+
         # 'USER': 'root',
         # 'NAME': 'mysql',
         # 'PASSWORD': '11235813ame',
