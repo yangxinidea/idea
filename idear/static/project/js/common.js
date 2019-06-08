@@ -144,7 +144,7 @@ preport.onclick = function(){
                      "projectId": projectId
                  }, function (data) {
                      if(data == 1){
-                         alert("提交成功")
+                         alert("提交成功");
                          window.location.reload();
                      }
                      else{

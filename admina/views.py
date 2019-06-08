@@ -605,8 +605,9 @@ def deleteProjectLable(req):
         try:
             ProjectLabelName = req.POST['lableName']
             ProjectLabel = models.ProjectLabel.objects.get(ProjectLabelName=ProjectLabelName)
-            ProjectLabel.IsUse = False
-            ProjectLabel.save()
+            # ProjectLabel.IsUse = False
+            ProjectLabel.delete()
+            # ProjectLabel.save()
             data = 1
         except Exception as e:
             print (e)
@@ -670,8 +671,9 @@ def deleteUserLable(req):
         try:
             lableName = req.POST['lableName']
             Lable = models.UserLabel.objects.get(Name=lableName)
-            Lable.IsUse = False
-            Lable.save()
+            # Lable.IsUse = False
+            # Lable.save()
+            Lable.delete()
             data = 1    # 删除成功
         except Exception as e:
             print (e)
@@ -888,7 +890,10 @@ def report_comment(req):
     :return:
     '''
     if req.method == "GET":
-        return render(req, 'admina/report_comment.html')
+        Reports = models.Report.objects.all().order_by('-Id')
+        # print(Report)
+
+        return render(req, 'admina/report_comment.html',{"Reports": Reports,})
     else:
         pass
 
@@ -902,7 +907,9 @@ def report_creation(req):
     :return:
     '''
     if req.method == "GET":
-        return render(req, 'admina/report_creation.html')
+        Reports = models.Report.objects.all().order_by('-Id')
+        # print(Report)
+        return render(req, 'admina/report_creation.html',{"Reports": Reports,})
     else:
         pass
 
@@ -917,7 +924,9 @@ def report_user(req):
     :return:
     '''
     if req.method == "GET":
-        return render(req, 'admina/report_user.html')
+        Report = models.Report.objects.all()
+
+        return render(req, 'admina/report_user.html',{"Report": Report,})
     else:
         pass
 
@@ -931,7 +940,9 @@ def report_project(req):
     :return:
     '''
     if req.method == "GET":
-        return render(req, 'admina/report_project.html')
+        Reports = models.Report.objects.all().order_by('-Id')
+        print(Reports)
+        return render(req, 'admina/report_project.html',{"Reports": Reports,})
     else:
         pass
 
@@ -978,8 +989,9 @@ def deletecreation(req):
             creation_comment = req.POST['creation_comment']
             creationcomment = models.Comment.objects.get(Id=creation_comment)
             print(creationcomment)
-            creationcomment.IsUse = False
-            creationcomment.save()
+            # creationcomment.IsUse = False
+            # creationcomment.save()
+            creationcomment.delete()
             data = 1
         except Exception as e:
             print (e)
@@ -1031,8 +1043,9 @@ def deleteComment(req):
             project_comment = req.POST['project_comment']
             Projectcomment = models.Comment.objects.get(Id=project_comment)
             print(Projectcomment.user.UserName)
-            Projectcomment.IsUse = False
-            Projectcomment.save()
+            # Projectcomment.IsUse = False
+            # Projectcomment.save()
+            Projectcomment.delete()
             data = 1
         except Exception as e:
             print (e)

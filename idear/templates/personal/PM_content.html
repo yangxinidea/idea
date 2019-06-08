@@ -133,6 +133,7 @@
                 </div>
             </div>
         </div>
+       <input type="text" style="display: none" id = "projectId" value="{{project.Id}}">
         <div class="people">
             <table class="table">
                 <tr>
@@ -143,18 +144,18 @@
 {#                  <td>成员：</td>#}
 {#                    <td></td>#}
 {#                </tr>#}
-                {% for user in user %}
-                    <tr>
-                      <td>
-                          {{ user.user.UserName }}
-                          <input type="text" value="{{ project.Id }}" style="display:none;" id="projectId">
-                          <input type="text" value="{{ user.user.Id }}" style="display:none;" id="peopleId">
-                      </td>
-                      <td>
-                          <span class="fa fa-trash-o" style="cursor :pointer;margin-left: 5%;margin-top: 7px" id="people"></span>
-                      </td>
-                    </tr>
-                {% endfor %}
+{#                {% for user in user %}#}
+{#                    <tr>#}
+{#                      <td>#}
+{#                          {{ user.user.UserName }}#}
+{#                          <input type="text" value="{{ project.Id }}" style="display:none;" id="projectId">#}
+{#                          <input type="text" value="{{ user.user.Id }}" style="display:none;" id="peopleId">#}
+{#                      </td>#}
+{#                      <td>#}
+{#                          <span class="fa fa-trash-o" style="cursor :pointer;margin-left: 5%;margin-top: 7px" id="people"></span>#}
+{#                      </td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
             </table>
         </div>
     </div>
