@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^login$', views.login),
     url(r'^logout$', views.logout),
 
-    url(r'^project/add$', views.project_add),
+    url(r'^project/add$', views.project_add, name='project_add'),
     url(r'^project/all/(?P<page>(\d+)?)$', views.project_all, name='project_all'),
     url(r'^project/detail/(?P<id>(\d+)?)$', views.project_detail),
     url(r'^project/recmanage/$', views.project_recmanage),
