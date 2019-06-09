@@ -22,7 +22,7 @@ $(".follow").click(function(){
    Id = $(this).attr("creation")
    follow = $(this)
    $.post("attend",{userId:userId,attendType:"1",Id:Id},function(data){
-    if(data == 0)
+    if(data == 1)
         {
           follow.children().attr("src","../static/creation/imgs/collections.png")
           follow.children(".followspan").html(parseInt(follow.children(".followspan").html())+1)

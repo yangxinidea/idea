@@ -18,15 +18,26 @@
     {% if follow.creation %}
     <div class="mainContentPro">
         <div class="proCoverImg">
+            {% if follow.creation.Statue == 1 or follow.creation.Statue == 3%}
             <a href="crdetails?creationId={{ follow.creation.Id }} ">
                 <img src="/static/photos/{{ follow.creation.Img }}">
             </a>
+                {% elif follow.creation.Statue == 2 or follow.creation.Statue == 4 %}
+            <a href="dedetails?projectId={{ follow.creation.Id }} ">
+                <img src="/static/photos/{{ follow.creation.Img }}">
+            </a>
+            {% endif %}
         </div>
         <div class="proContent">
+             {% if follow.creation.Statue == 1 or follow.creation.Statue == 3%}
             <a href="crdetails?creationId={{ follow.creation.Id }} ">
                 <p>{{ follow.creation.Name }}</p>
             </a>
-
+            {% elif follow.creation.Statue == 2 or follow.creation.Statue == 4 %}
+            <a href="dedetails?creationId={{ follow.creation.Id }} ">
+                <p>{{ follow.creation.Name }}</p>
+            </a>
+            {% endif %}
         </div>
         <button type="button" class="deletePro btn btn-default" value="{{ follow.creation.Id }}">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
