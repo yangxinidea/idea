@@ -2297,7 +2297,9 @@ def PM_content(req,projectid):
     :param req:
     :return:
     '''
+
     if req.method == 'GET':
+
         project = models.Project.objects.get(Id=projectid)
         user = models.ProjectUser.objects.filter(Q(project_id=projectid)&Q(Identity=0))
         firstUser = models.ProjectUser.objects.filter(Q(project_id=projectid)&Q(Identity=1))
@@ -2305,6 +2307,7 @@ def PM_content(req,projectid):
         labels = models.ProjectLabel.objects.all()
 
         recruit = models.Recruit.objects.filter(project__Id=projectid)
+        print(project.EndTime)
         if recruit.exists():
             recruit = recruit[0]
         try:
@@ -2317,20 +2320,28 @@ def PM_content(req,projectid):
             'message': '',
             'status': 0
         }
+
         proTitle = req.POST['proTitle']
+        print(proTitle)
         picture = req.POST['picture']
+        print(picture)
         Description = req.POST["rhtml"]
         Description = remove_script(Description)
+        print(Description)
         numPerson = req.POST['numPerson']
+        print(numPerson)
         EndTime = req.POST["endTime"]
+        print(EndTime)
         postCon = req.POST['postCon']
+        print(postCon)
         plan = req.POST['plan']
         print(plan)
         img = req.FILES.get("coverMap")
-        EndTime = datetime.strptime(EndTime, "%Y/%m/%d")
+        print(img)
+
+        # EndTime = datetime.strptime(EndTime, "%Y/%m/%d")
 
         try:
-
             proTitle = req.POST['proTitle']
             picture = req.POST['picture']
             Description = req.POST["rhtml"]
@@ -2342,18 +2353,23 @@ def PM_content(req,projectid):
             postCon = req.POST['postCon']
             plan = req.POST['plan']
             img = req.FILES.get("coverMap")
-
             EndTime = datetime.strptime(EndTime,"%Y/%m/%d")
-
-            models.Project.objects.filter(Id=projectid).update(ProjectName=proTitle, Statue=plan,
-                                                               Description=Description, EndTime=EndTime)
+            models.Project.objects.filter(Id=projectid).update(ProjectName=proTitle, Statue=plan,                                                           Description=Description, EndTime=EndTime)
             models.Recruit.objects.filter(project__Id=projectid).update(PredictNumber=numPerson, Describe=postCon)
             result['status'] = 1
             result['message'] = '成功'
 
+            project = models.Project.objects.filter(Id=projectid).update(ProjectName=proTitle, Statue=plan,
+                                                               Description=Description, EndTime=datetime.now(),Img=img,Uuid=uuid.uuid4())
+            recruit = models.Recruit.objects.filter(project__Id=projectid).update(PredictNumber=numPerson, Describe=postCon,Uuid=uuid.uuid4())
+
+            result['status'] = 1
+            result['message'] = '成功'
+            return HttpResponse(json.dumps(result))
         except:
             result['status'] = 0
             result['message'] = '获取信息失败'
+            print(result)
             return HttpResponse(json.dumps(result))
 
 

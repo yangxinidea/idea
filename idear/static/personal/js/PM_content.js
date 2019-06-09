@@ -148,6 +148,7 @@ $(function () {
             alert("项目内容不能为空！");
         }
         var endTime = $("#flatpickr-tryme").val();//截止时间
+
         if(!endTime){
             alert("请选择结束时间！");
         }
@@ -159,10 +160,13 @@ $(function () {
             "numPerson": numPerson,
             "endTime": endTime,
             "postCon": postCon,
-            "plan": plan
+            "plan": plan,
+            "projectId":projectId
         };
+
         $.post("/idear/PM_content/"+projectId,data,function (result) {
             var result = JSON.parse(result);
+            alert(result)
             if(result.status){
                 alert("修改成功");
             }
